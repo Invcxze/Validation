@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Регистрация</title>
+</head>
+<body>
+   <form method="POST" novalidate>
+        {% csrf_token %}
+             <div>
+            <div>Регистрация
+                <div class="subtitle"> Создайте вашу учётную запись</div>
+            </div>
+                 <div>
+                     {% for field in form %}
+                <div>
+                    {{ field.label_tag }}
+                    <div>{{ field }}</div>
+                    {% if field.errors %}
+                    <div>{{ field.errors }}</div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                </div>
+                <input type="submit" value=" Закончить регистрацию" class="button">
+            </div>
+    </form>
+</body>
+</html>
